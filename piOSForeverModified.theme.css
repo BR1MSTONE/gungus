@@ -1,0 +1,273 @@
+/**
+ * @name piOS Forever
+ * @author Saltssaumure
+ * @authorLink https://github.com/Saltssaumure
+ * @description SUPERHOT piOS inspired theme. With customisable colours, glow intensity, support for both cosy and compact mode.
+ * @version Autoupdate6
+ * @invite uy8nKQVatp
+ * @source https://github.com/Saltssaumure/pios-discord-theme
+ * @donate https://ko-fi.com/saltssaumure
+*/
+
+/*
+                                                Made by:
+ _______  _______  _    _________ _______  _______  _______           __   __           _______  _______
+(  ____ \(  ___  )( \   \__   __/(  ____ \(  ____ \(  ___  )|\     /|(  \ /  )|\     /|(  ____ )(  ____ \
+| (____\/| (___) || |      | |   | (____\/| (____\/| (___) || |   | || || || || |   | || (____)|| (__  \/
+(_____  )|  ___  || |      | |   (_____  )(_____  )|  ___  || |   | || |(_)| || |   | || __  __)|  __)
+/\____) || )   ( || (____/\| |   /\____) |/\____) || )   ( || (___) || )   ( || (___) || ) \ \__| (____/\
+\_______)|/     \|(_______/)_(   \_______)\_______)|/     \|(_______)|/     \|(_______)|/   \__/(_______/
+                                         Licensed under GPL-3.0!
+
+Discord: Saltssaumure#7557
+GitHub: https://github.com/Saltssaumure/pios-discord-theme
+
+Join the SUPERHOT Official server! https://discord.gg/9eAwJF8
+Join Salts' Discord Themes server! https://discord.gg/uy8nKQVatp
+
+*/
+
+/* @import url("https://saltssaumure.github.io/pios-discord-theme/piOStheme.css"); */
+
+/**
+ * @name piOS Main
+ * @author Saltssaumure#7557
+ * @description Main section of piOS Discord Theme. Please download the autoupdater from https://github.com/Saltssaumure/pios-discord-theme/releases/tag/latest!
+ * @version 8
+*/
+
+/*
+Source for new class names:
+https://gist.github.com/ExperiBass/2375ac4f7088bb9410d81cd59495f462
+*/
+
+
+
+@import url(https://saltssaumure.github.io/borderradiant-discord-theme/BorderRadiant.theme.css);
+
+/**
+ * @name piOSRadialStatus (preconfigured for piOS)
+ * @author Gibbu#1211
+ * @version 2.0.0
+ * @description Changes the status icons to wrap around the avatar. Shape can be changed inside the theme file.
+ * @source https://github.com/DiscordStyles/RadialStatus
+ * @website https://www.gibbu.me
+*/
+
+@import url(https://discordstyles.github.io/RadialStatus/dist/RadialStatus.css);
+
+@import url(https://saltssaumure.github.io/pios-discord-theme/section/piOStext.theme.css);
+@import url(https://saltssaumure.github.io/pios-discord-theme/section/piOSglow.theme.css);
+@import url(https://saltssaumure.github.io/pios-discord-theme/section/piOSspoiler.theme.css);
+@import url(https://saltssaumure.github.io/pios-discord-theme/section/piOSsettings.theme.css);
+@import url(https://saltssaumure.github.io/pios-discord-theme/section/piOSmisc.theme.css);
+
+@import url(https://saltssaumure.github.io/pios-discord-theme/section/box/piOSboxChannelMemberServer.theme.css);
+@import url(https://saltssaumure.github.io/pios-discord-theme/section/box/piOSboxChat.theme.css);
+@import url(https://saltssaumure.github.io/pios-discord-theme/section/box/piOSboxModal.theme.css);
+@import url(https://saltssaumure.github.io/pios-discord-theme/section/box/piOSboxPopover.theme.css);
+@import url(https://saltssaumure.github.io/pios-discord-theme/section/box/piOSboxSearch.theme.css);
+
+@font-face {
+    font-family: "FixedSysTrue";
+	font-smooth: never;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    src: url("https://saltssaumure.github.io/pios-discord-theme/font/FixedSysTrue.ttf");
+}
+
+@font-face {
+    font-family: "PerfectDOS";
+	font-smooth: never;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    src: url("https://saltssaumure.github.io/pios-discord-theme/font/PerfectDosVga.ttf");
+}
+
+/* Warn users in light mode */
+.theme-light #piOS\ Forever-card .bd-description::after {
+    content: " Switch to dark mode to see effects.";
+    font-weight: 700;
+}
+
+/* 
+Override Discord variables: kebab-case
+Self-defined variables: camelCase
+User-definable variables: kebab-case
+*/
+
+.theme-dark,
+.layerContainer-2v_Sit .theme-light /* Modals that use theme-light while in dark mode */
+{
+    /* Set customisable colour scheme */
+    --piOSaccenthue:  var(--accent-color, 0); /* default: 0 (red) */
+    --piOSaccent:     hsl(var(--piOSaccenthue), calc(var(--saturation-factor)*100%), 50%);
+    --piOSwhite:    white;
+    --piOSlightgrey:lightgrey;
+    --piOSgrey:     grey;
+    --piOSblack:    black;
+    
+    /* Set default fonts */
+    --font-display: Minecraft, monospace; /* For server and channel title */
+	--font-primary: Comic Sans MS, monospace; /* For almost everything else */
+	--font-code:    "FixedSysTrue", monospace; /* Code blocks */
+    letter-spacing: -0.04rem;
+
+    /* Borders */
+	--borderColor:          var(--piOSgrey);
+	--borderCodeColor:      var(--piOSwhite);
+	--borderBrightColor:    var(--piOSwhite);
+    --thickBorder: 2px 5px;
+    --thinBorder:  1px 3px;
+
+    /* Text colours */
+	--header-primary:           var(--piOSwhite); /* Server name, channel name, default user colour */
+	--header-secondary:         var(--piOSgrey);
+    --text-normal:              var(--piOSwhite);
+    --text-muted:               var(--piOSgrey);
+    --text-link:                var(--piOSwhite);
+    --text-link-low-saturation: var(--piOSwhite);
+    --text-positive:            var(--piOSwhite);
+    --text-brand:               hsl(var(--piOSaccenthue), calc(var(--saturation-factor)*80%), 50%);
+    --interactive-normal:       var(--piOSlightgrey);
+    --interactive-muted:        var(--piOSgrey);
+    --interactive-active:       var(--piOSwhite); /* default: unread dot marker, current channel name */
+
+    /* Backgrounds */
+    --background-primary:       var(--piOSblack);
+    --background-secondary:     var(--piOSblack);
+    --background-secondary-alt: var(--piOSblack);
+    --background-tertiary:      var(--piOSblack);
+    --background-mobile-primary:    var(--piOSblack);
+    --background-mobile-secondary:  var(--piOSblack);
+    --background-accent:        var(--piOSaccent);
+    --background-floating:      var(--piOSblack);
+	--background-mentioned:     hsla(var(--piOSaccenthue), calc(var(--saturation-factor)*100%), 50%, 0.2);
+    --backgroundEmbed:          hsla(var(--piOSaccenthue), calc(var(--saturation-factor)*100%), 50%, 0.3);
+	--channeltextarea-background:   transparent;
+    --input-background:         var(--background-modifier-hover); 
+    --deprecated-card-bg:       var(--background-modifier-hover);
+    --button-danger-background:         var(--background-modifier-active);
+    --button-danger-background-hover:   var(--background-accent);
+    --button-danger-background-active:  var(--background-accent);
+    --button-positive-background:           var(--background-modifier-active);  
+    --button-positive-background-hover:     var(--background-accent);
+    --button-positive-background-active:    var(--background-accent);
+    --button-outline-positive-text:                 var(--piOSwhite);
+    --button-outline-positive-text-hover:           var(--piOSwhite);
+    --button-outline-positive-text-active:          var(--piOSwhite);
+    --button-outline-positive-background-hover:     var(--background-modifier-selected);
+    --button-outline-positive-background-active:    var(--background-modifier-selected);
+    --button-outline-positive-border:           var(--piOSaccent);
+    --button-outline-positive-border-hover:     var(--piOSaccent);
+    --button-outline-positive-border-active:    var(--piOSaccent);
+    --button-outline-danger-text:               var(--piOSwhite);
+    --button-outline-danger-text-hover:         var(--piOSwhite);
+    --button-outline-danger-border:             var(--piOSaccent);
+    --button-outline-danger-background-hover:   var(--background-modifier-active);
+    --button-outline-danger-background-active:  var(--background-accent);
+    --button-outline-danger-border-hover:       var(--background-modifier-active);
+    --button-outline-danger-border-active:      var(--background-accent);
+    --button-secondary-background:          var(--piOSblack);
+    --button-secondary-background-hover:    var(--background-modifier-hover);
+    --button-secondary-background-active:   var(--background-modifier-active);
+    --background-modifier-hover:    hsla(var(--piOSaccenthue), calc(var(--saturation-factor)*100%), 50%, 0.2);
+    --background-modifier-active:   hsla(var(--piOSaccenthue), calc(var(--saturation-factor)*100%), 50%, 0.7);
+    --background-modifier-selected: hsla(var(--piOSaccenthue), calc(var(--saturation-factor)*100%), 50%, 0.3);
+    --background-modifier-accent:   transparent;
+
+    /* Scrollbars */
+    --scrollbar-thin-thumb: var(--piOSaccent);
+    --scrollbar-thin-track: transparent;
+    --scrollbar-auto-thumb: var(--piOSaccent);
+    --scrollbar-auto-track: transparent;
+    --scrollbar-auto-scrollbar-color-thumb: var(--piOSaccent);
+    --scrollbar-auto-scrollbar-color-track: transparent;
+
+    /* Drop shadows */
+    --elevation-stroke: transparent;
+    --elevation-low:    transparent;
+    --elevation-medium: transparent;
+    --elevation-high:   transparent;
+
+    /* Search */
+    --search-popout-option-fade:        linear-gradient(90deg, transparent, var(--piOSblack) 80%); /* Fading effect after search options */
+    --search-popout-option-fade-hover:  linear-gradient(90deg, transparent, var(--piOSblack) 50%);
+    /* --search-popout-option-filter-text: var(--piOSgrey); */
+    --search-popout-option-non-text-color: var(--piOSgrey);
+    /*--search-popout-option-filter-color:    var(--piOSgrey);
+    --search-popout-option-answer-color:    var(--piOSgrey);
+    --search-popout-date-picker-border:     var(--piOSgrey); 
+    As of 8th Apr 2022, these variables do nothing */
+    --search-popout-date-picker-hint-text:  var(--piOSgrey);
+    --search-popout-date-picker-hint-value-text:                var(--piOSwhite);
+    --search-popout-date-picker-hint-value-background:          var(--background-modifier-hover);
+    --search-popout-date-picker-hint-value-background-hover:    var(--background-modifier-selected);
+    --deprecated-text-input-border-disabled: var(--borderColor); /* for some reason used by day box borders */
+
+    /* Misc parts */
+    --status-danger: var(--piOSaccent); /* Servers sidebar notification counter background */
+    --divider-color: hsl(0, calc(var(--saturation-factor)*100%), 50%); /* color of new messages divider */
+	--info-warning-foreground: hsl(0, calc(var(--saturation-factor)*100%), 50%); /* colour of @ping message left side indicator */
+    --spoilerGradient: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 4px,
+        rgba(0, 255, 255, 0.2) 2px,
+        rgba(0, 255, 255, 0.2) 6px
+    ); /* Spoiler stripe pattern */
+    --glowIntensity: var(--glow-intensity, 1);
+    --true-compact-message-spacing: var(--compact-message-spacing, 1); /* Space between messages in compact mode, user adjustable */
+    --focus-primary: hsl(
+        calc(var(--piOSaccenthue) + 180),
+        calc(var(--saturation-factor) * 100%),
+        50%
+    ); /* Focus ring when navigating by keyboard */
+    --info-warning-foreground: var(--piOSaccent); /* Mentioned message left bar */
+}
+
+/*
+    Keep Custom CSS editor and code related parts untouched.
+    Avoids issues when working with the Custom CSS editor.
+ */
+#bd-customcss-detach-container.hljs,
+#bd-customcss-detach-container.inline,
+#bd-customcss-detach-container.hljs :-webkit-any(ol, li, span),
+.editor-wrapper :-webkit-any(textarea, div, span) {
+    font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro",
+        monospace;
+    text-transform: none;
+    text-shadow: none;
+}
+
+:root
+{
+    --glow-intensity: 0.4;            /* Intensity of text glow. Range: 0-1, default: 1 (100%) */
+    --compact-message-spacing: 1;   /* Space between messages in compact mode. Range: 0-∞, default: 1 (100%) */
+    --accent-color: 0;              /* Colour accent hue value as in HSL. Range: 0-360, default: 0 (red) */
+    --title-text: "piOS v2.1.01p";  /* Text replacement for Discord logo. Values: any text in "quotations" */
+    --crt-overlay: none;           /* CRT monitor overlay. Values: block (on) or none (off) */
+    /* The following effects are performance-heavy. */
+    --crt-scanline: none;          /* CRT animated scanline. Values: block (on) or none (off) */
+    --crt-flicker: none;            /* CRT monitor overlay flickering. Values: flicker (on) or none (off) */
+
+    --rs-small-spacing: 1px; /* Gap between avatar and status for members list/dms | MUST end in px */
+    --rs-medium-spacing: 2px; /* Gap between avatar and status for User popout | MUST end in px */
+    --rs-large-spacing: 5px; /* Gap between avatar and status for User profiles | MUST end in px */
+  
+    --rs-small-width: 2px; /* Thickness of status border for members list/dms | MUST end in px */
+    --rs-medium-width: 3px; /* Thickness of status border for User popout | MUST end in px */
+    --rs-large-width: 4px; /* Thickness of status border for User profile | MUST end in px */
+  
+    --rs-avatar-shape: 0%; /* 50% for round - 0% for square */
+  
+    --rs-online-color: hsl(139, calc(var(--saturation-factor, 1) * 47.3%), 43.9%); /* Colour for online status */
+    --rs-idle-color: hsl(38, calc(var(--saturation-factor, 1) * 95.7%), 54.1%); /* Colour for idle status */
+    --rs-dnd-color: hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%); /* Colour for dnd status */
+  /*  --rs-offline-color: hsl(214, calc(var(--saturation-factor, 1) * 9.9%), 50.4%); /* Colour for offline status */
+    --rs-streaming-color: hsl(262, calc(var(--saturation-factor, 1) * 46.8%), 39.8%); /* Colour for streaming status */
+    --rs-invisible-color: var(--rs-offline-color); /* Colour for invisible status - Note: this will only show for your own invisibility */
+    --rs-phone-color: var(--rs-online-color); /* Colour of the ring and phone icon when a user is on their phone |  */
+  
+    --rs-phone-visible: block; /* Visibility of the phone icon next to a users avatar. | block = visible | none = hidden */
+}
